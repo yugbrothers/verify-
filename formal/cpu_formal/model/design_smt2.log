@@ -1,0 +1,131 @@
+
+ /----------------------------------------------------------------------------\
+ |  yosys -- Yosys Open SYnthesis Suite                                       |
+ |  Copyright (C) 2012 - 2026  Claire Xenia Wolf <claire@yosyshq.com>         |
+ |  Distributed under an ISC-like license, type "license" to see terms        |
+ \----------------------------------------------------------------------------/
+ Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 17.0.0 -fPIC -O3)
+
+-- Executing script file `design_smt2.ys' --
+
+1. Executing RTLIL frontend.
+Input filename: design_prep.il
+
+2. Executing HIERARCHY pass (managing design hierarchy).
+Attribute `top' found on module `cpu_formal'. Setting top module to cpu_formal.
+
+2.1. Analyzing design hierarchy..
+Top module:  \cpu_formal
+Used module:     \cpu
+Used module:     \cpu_assertions
+
+2.2. Analyzing design hierarchy..
+Top module:  \cpu_formal
+Used module:     \cpu
+Used module:     \cpu_assertions
+Removed 0 unused modules.
+Module cpu_assertions directly or indirectly contains formal properties -> setting "keep" attribute.
+Module cpu_formal directly or indirectly contains formal properties -> setting "keep" attribute.
+
+3. Executing FORMALFF pass.
+
+4. Executing DFFUNMAP pass (unmap clock enable and synchronous reset from FFs).
+
+5. Printing statistics.
+
+=== cpu ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        6 wires
+       99 wire bits
+        3 public wires
+       34 public wire bits
+        3 ports
+       34 port bits
+        5 cells
+        1   $add
+        1   $anyinit
+        1   $assume
+        1   $mux
+        1   $not
+
+=== cpu_assertions ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        8 wires
+       39 wire bits
+        3 public wires
+       34 public wire bits
+        3 ports
+       34 port bits
+        7 cells
+        1   $assert
+        1   $assume
+        2   $ff
+        1   $logic_not
+        1   $mux
+        1   $not
+
+=== cpu_formal ===
+
+        +----------Local Count, excluding submodules.
+        | 
+        4 wires
+       35 wire bits
+        3 public wires
+       34 public wire bits
+        3 cells
+        1   $anyseq
+        1   $assume
+        1   $not
+        2 submodules
+        1   cpu
+        1   cpu_assertions
+
+=== design hierarchy ===
+
+        +----------Count including submodules.
+        | 
+       15 cpu_formal
+        5 cpu
+        7 cpu_assertions
+
+        +----------Count including submodules.
+        | 
+       18 wires
+      173 wire bits
+        9 public wires
+      102 public wire bits
+        6 ports
+       68 port bits
+        - memories
+        - memory bits
+        - processes
+       15 cells
+        1   $add
+        1   $anyinit
+        1   $anyseq
+        1   $assert
+        3   $assume
+        2   $ff
+        1   $logic_not
+        2   $mux
+        3   $not
+        2 submodules
+        1   cpu
+        1   cpu_assertions
+
+6. Executing SMT2 backend.
+
+6.1. Executing BMUXMAP pass.
+
+6.2. Executing DEMUXMAP pass.
+Creating SMT-LIBv2 representation of module cpu_assertions.
+Creating SMT-LIBv2 representation of module cpu.
+Creating SMT-LIBv2 representation of module cpu_formal.
+
+End of script. Logfile hash: 6d38f53d82, time: 0.00s, user: 0.00s, system: 0.00s, MEM: 11.58 MB peak
+Yosys 0.66 (git sha1 7f8fdfd8d7bc08c749a2a969388d3425d4f369d5, clang++ 17.0.0 -fPIC -O3)
+Time spent: 65% 2x write_smt2 (0 sec), 12% 2x read_rtlil (0 sec), ...
